@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Weather Dashboard</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    </head>
+    
+    <body>
+        <div class="container">
+            <div class="text-center text-white bg-dark">
+                <h1>Weather Dashboard</h1>
+            </div>
+
+            <div class= "row">
+              <div class="col-3">
+                <h2 style="font-family: 'Open Sans Condensed', sans-serif;">Search for a city...</h2>
+                  <div class="card">
+                    <div class="card-body">
+                      <input type= "text" id= "city" placeholder="Search...">
+                      <button type="button" class="btn btn-primary"><i class="fas fa-search"></i></button> 
+                    </div>
+                  </div>
+
+                <div class= "savedCities">
+                  <ul></ul> <!--add a class to ul-->
+                </div>
+              </div>
+
+              <div class= "col-9">
+                <div class="card">
+                  <div class="card-body">
+                    <!-- Retrieved data will be dumped here -->
+                    <div class="city"></div>
+                    <div class="wind"></div>
+                    <div class="temp"></div>
+                    <div class="humidity"></div>
+                    <!-- Add extra div for the bonus Fahrenheit temp -->
+                    <div class="tempF"></div>
+                    <div class="uv"></div>
+                  </div>
+                </div>
+
+                  <div class="FiveDay"></div>  
+                    <!--<div class="card">
+                      <div class="card-body">-->
+                      <div class="dt_txt"></div>
+                      <div class="weathericon"></div>
+                      <div class="maintemp"></div>
+                      <div class="mainhumidity"></div>
+                      <div class="tempFaren"></div>
+              </div>
+            </div>     
+
+                
+          
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src= "weather.js">
+          
+        </script>
+    </body>
+</html>
