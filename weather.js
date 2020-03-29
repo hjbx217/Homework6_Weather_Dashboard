@@ -6,7 +6,7 @@ var cityStorage= [];
 
 
 function weatherAPI(cityname){  //...YOUR CODE HERE... 
-var queryURL= "http://api.openweathermap.org/data/2.5/weather?q=" + cityname + "&appid=" + APIkey; //cityname
+var queryURL= "https://api.openweathermap.org/data/2.5/weather?q=" + cityname + "&appid=" + APIkey; //cityname
 
 $.ajax({
     url: queryURL,
@@ -46,7 +46,7 @@ $.ajax({
 
 function forecastAPI(cityname){
    var APIkey = "afab4ed2090fc1662f70339948775475";
-   var queryURL= "http://api.openweathermap.org/data/2.5/forecast?q=" + cityname + "&appid=" + APIkey;
+   var queryURL= "https://api.openweathermap.org/data/2.5/forecast?q=" + cityname + "&appid=" + APIkey;
 
    
    $.ajax({
@@ -100,7 +100,7 @@ function forecastAPI(cityname){
             //weather icons
             var myicon= (response.list[i].weather[0].icon)  //list[i] is used because we're in a loop. we're finidng where the index is, we're trying to find the position in the array.
             console.log(myicon);
-            var iconsrc = `http://openweathermap.org/img/wn/${myicon}@2x.png`
+            var iconsrc = `https://openweathermap.org/img/wn/${myicon}@2x.png`
             var weatherIcon= $("<img>").attr("src", iconsrc);
 
             //$(".mainhumidity").append("Humidity: ", response.list[i].main.humidity);
@@ -148,6 +148,7 @@ function load(){
     //append to ul(Parent), set the inside of the <li> to be the name of the city
         p.text(loadedCities[i]);
         //append to ul(parent)
+        $(".sCities").append()
 
     }
 }
@@ -155,7 +156,7 @@ load();
 
 
 function uvIndex(lat,lon){
-    var queryURL = `http://api.openweathermap.org/data/2.5/uvi?appid=${APIkey}&lat=${lat}&lon=${lon}` //this is a string literal (characters are called "graves mark");
+    var queryURL = `https://api.openweathermap.org/data/2.5/uvi?appid=${APIkey}&lat=${lat}&lon=${lon}` //this is a string literal (characters are called "graves mark");
     $.ajax({
         url: queryURL,
         method: "GET"
