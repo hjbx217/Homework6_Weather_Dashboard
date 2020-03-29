@@ -126,29 +126,36 @@ $(".btn").click(function(){
     var cityLocal= JSON.parse(window.localStorage.getItem("cities"))||[];
     //local to citystorage
     cityStorage= [];
-    cityLocal.push(city);
     
-
-    //cityStorage.push(cityLocal);
-    window.localStorage.setItem("cities", JSON.stringify(cityLocal));
+    console.log(cityLocal.indexOf(city));
+    if (cityLocal.indexOf(city) == -1) {
+        cityLocal.push(city);
+        window.localStorage.setItem("cities", JSON.stringify(cityLocal));
+    }
+  
     //selector of the input field .valtrim
-    var cityLocal= JSON.parse(window.localStorage.getItem("cities"));
+    /*var cityLocal= JSON.parse(window.localStorage.getItem("cities"));
     for (i=0; i<savedCities.length; i++){
         var savedCities= $("<li>").text(cityLocal[i]);
     $(".savedCities").append(savedCities);
-    }
+    }*/ //same thing as the load function
+load();
 });
+
 //creating function for cities when the page loads
 function load(){
-    var loadedCities= JSON.parse(window.localStorage.getItem("cities"));
+    $(".sCities").empty();
+    var loadedCities= JSON.parse(window.localStorage.getItem("cities")) || [];
         console.log(loadedCities);
     for (i=0; i<loadedCities.length; i++){
             console.log(loadedCities[i]);
         var p= $("<li>");
-    //append to ul(Parent), set the inside of the <li> to be the name of the city
+        //append to ul(Parent), set the inside of the <li> to be the name of the city
         p.text(loadedCities[i]);
         //append to ul(parent)
-        $(".sCities").append()
+        $(".sCities").append(p);
+        
+        
 
     }
 }
@@ -162,8 +169,16 @@ function uvIndex(lat,lon){
         method: "GET"
      }).then(function(response){
     console.log(response.value);
+    var uvButton;
+    if (response.value <= 2){
+        uvButton= '<button type="button" class="btn btn-success">' +response.value+ '</button>' 
+    } else if (response.value >= 8) {
+        uvButton = '<button type="button" class="btn btn-danger">' +response.value+ '</button>' 
+    } else {
+        uvButton = '<button type="button" class="btn btn-warning">' +response.value+ '</button>' 
+    }
     
-    $(".uv").append("UVIndex ",response.value);
+    $(".uv").append("UVIndex ", uvButton);
     });
 
 }
