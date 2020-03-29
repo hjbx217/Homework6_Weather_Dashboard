@@ -29,4 +29,3 @@ THEN I am presented with the last searched city forecast
 
 - - -
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
-# Homework6_Weather_Dashboard
